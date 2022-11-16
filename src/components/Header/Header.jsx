@@ -8,6 +8,7 @@ import logo from '../../assets/images/eco-logo.png';
 import user from '../../assets/images/user-icon.png';
 
 import { Container, Row } from 'reactstrap';
+import { useSelector } from 'react-redux';
 
 const nav__links = [
     {
@@ -28,6 +29,7 @@ const Header = () => {
 
     const headerRef = useRef(null);
     const menuRef = useRef(null);
+    const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
     const stickyHeaderFunc = () =>{
         window.addEventListener('scroll', ()=>{
@@ -80,7 +82,7 @@ const Header = () => {
                             </span>
                             <span className="cart__icon">
                                 <i className="ri-shopping-bag-line"></i>
-                                <span className="badge">1</span>
+                                <span className="badge">{totalQuantity}</span>
                             </span>
                             <span><motion.img whileTap={{scale:1.2}} src={user} alt="user" /></span>
                         <div className="mobile__menu" >
