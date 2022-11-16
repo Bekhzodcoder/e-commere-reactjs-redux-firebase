@@ -12,4 +12,4 @@ const CommonSection = ({title}) => {
   )
 }
 
-export default CommonSection
+export default CommonSection;

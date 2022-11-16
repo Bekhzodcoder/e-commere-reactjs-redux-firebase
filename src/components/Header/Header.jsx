@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import './Header.css';
 
-import { NavLink } from 'react-bootstrap';
+import { NavLink, useNavigate} from 'react-router-dom';
 import {motion} from 'framer-motion';
 
 import logo from '../../assets/images/eco-logo.png';
@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 const nav__links = [
     {
-        path:'/home',
+        path:'/',
         display:"Home"
     },
     {
@@ -47,7 +47,13 @@ const Header = () => {
         return ()=> window.removeEventListener('scroll', stickyHeaderFunc)
     })
 
-    const menuToggle = () => menuRef.current.classList.toggle('active__menu')
+    const menuToggle = () => menuRef.current.classList.toggle('active__menu');
+
+    const navigate = useNavigate();
+
+    const navigateToCart = () =>{
+        navigate('/cart')
+    }
 
     return (
         <div className='header' ref={headerRef}>
@@ -72,6 +78,7 @@ const Header = () => {
                                         </NavLink>
                                     </li>
                                 ))}
+                                
                             </ul>
                         </div>
 
@@ -80,7 +87,7 @@ const Header = () => {
                                 <i className="ri-heart-line"></i>
                                 <span className="badge">1</span>
                             </span>
-                            <span className="cart__icon">
+                            <span className="cart__icon" onClick={navigateToCart}>
                                 <i className="ri-shopping-bag-line"></i>
                                 <span className="badge">{totalQuantity}</span>
                             </span>
