@@ -2,6 +2,9 @@
 
 .common__section{
     background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.568));
+    background-image: url('../assets/images/ecommerre.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     background-size: cover;
     padding: 100px 0;
     display: flex;

@@ -74,7 +74,7 @@ const ProductDetails = () => {
                 <Container>
                     <Row>
                         <Col lg='6'>
-                            <img src={imgUrl}/>
+                            <img src={imgUrl} alt='logo'/>
                         </Col>
                         <Col lg='6'>
                             <div className="product__details">

@@ -27,11 +27,11 @@ const Home = () => {
     const year = new Date().getFullYear();
 
     useEffect(()=>{
-        const filterTrendingProducts = products.filter(item => item.category == 'chair');
-        const filterBestSalesProducts = products.filter(item => item.category == 'sofa');
-        const filterMobileProducts = products.filter(item => item.category == 'mobile');
-        const filterWirelessProducts = products.filter(item => item.category == 'wireless');
-        const filterPopularProducts = products.filter(item => item.category == 'watch');
+        const filterTrendingProducts = products.filter(item => item.category === 'chair');
+        const filterBestSalesProducts = products.filter(item => item.category === 'sofa');
+        const filterMobileProducts = products.filter(item => item.category === 'mobile');
+        const filterWirelessProducts = products.filter(item => item.category === 'wireless');
+        const filterPopularProducts = products.filter(item => item.category === 'watch');
         setTredingProducts(filterTrendingProducts);
         setBestSalesProducts(filterBestSalesProducts);
         setMobileProducts(filterMobileProducts);
@@ -55,7 +55,7 @@ const Home = () => {
                         </Col>
                         <Col>
                             <div className='hero__img'>
-                                <img src={heroImg} />
+                                <img src={heroImg} alt='logo' />
                             </div>
                         </Col>
                     </Row>
