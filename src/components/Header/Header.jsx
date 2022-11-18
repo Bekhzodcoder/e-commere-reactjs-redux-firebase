@@ -36,37 +36,37 @@ const Header = () => {
     const headerRef = useRef(null);
     const menuRef = useRef(null);
     const {currentUser}  = useAuth();
-    const totalQuantity = useSelector(state => state.cart.totalQuantity)
+    const totalQuantity = useSelector(state => state.cart.totalQuantity);
 
     const stickyHeaderFunc = () =>{
         window.addEventListener('scroll', ()=>{
             if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
-                headerRef.current.classList.add('sticky__header')
+                headerRef.current.classList.add('sticky__header');
             }else{
-                headerRef.current.classList.remove('sticky__header')
+                headerRef.current.classList.remove('sticky__header');
             }
-        })
-    }
+        });
+    };
 
     useEffect(()=>{
         stickyHeaderFunc();
 
-        return ()=> window.removeEventListener('scroll', stickyHeaderFunc)
+        return ()=> window.removeEventListener('scroll', stickyHeaderFunc);
     })
     const profileActionRef = useRef(null);
-    const toggleProfileActions = () => profileActionRef.current.classList.toggle('show__profileActions')
+    const toggleProfileActions = () => profileActionRef.current.classList.toggle('show__profileActions');
     const menuToggle = () => menuRef.current.classList.toggle('active__menu');
 
     const navigate = useNavigate();
 
     const navigateToCart = () =>{
-        navigate('/cart')
+        navigate('/cart');
     }
 
     const logout = () =>{
         signOut(auth).then(()=>{
             toast.success('Logged out');
-            navigate('/')
+            navigate('/');
         }).catch(err=>{
             toast.error(err.message);
         })
@@ -77,12 +77,14 @@ const Header = () => {
             <Container>
                 <Row>
                     <div className="nav__wrapper">
+                        <NavLink to='/'>
                         <div className="logo">
                             <img src={logo} alt="logo" />
                             <div>
                                 <h1>Multipark</h1>
                             </div>
                         </div>
+                        </NavLink>
 
                         <div className="navigation" ref={menuRef} onClick={menuToggle}>
                             <ul className="menu">
